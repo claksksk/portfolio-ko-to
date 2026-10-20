@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Live Background Canvas */
         #bg-canvas {
             position: fixed;
             top: 0;
@@ -42,7 +41,6 @@
             background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
         }
 
-        /* Professional Glass Navbar */
         .navbar {
             background: rgba(3, 7, 18, 0.8) !important;
             backdrop-filter: blur(16px);
@@ -73,7 +71,6 @@
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
         }
 
-        /* Hero Home Section */
         #home {
             min-height: 100vh;
             display: flex;
@@ -94,7 +91,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* Professional Buttons */
         .btn-primary-custom {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             border: none;
@@ -106,6 +102,7 @@
             box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
             text-decoration: none;
             display: inline-block;
+            cursor: pointer;
         }
 
         .btn-primary-custom:hover {
@@ -125,6 +122,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            cursor: pointer;
         }
 
         .btn-outline-custom:hover {
@@ -135,7 +133,6 @@
             box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
         }
 
-        /* Section Headers */
         section {
             padding: 100px 0;
             position: relative;
@@ -167,7 +164,6 @@
             font-size: 1.05rem;
         }
 
-        /* Glassmorphism Cards */
         .card {
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
@@ -207,7 +203,6 @@
             transform: translateY(-2px);
         }
 
-        /* Profile Image Frame */
         .profile-img-container {
             position: relative;
             display: inline-block;
@@ -227,7 +222,19 @@
             transform: scale(1.03);
         }
 
-        /* Interactive Contact Cards */
+        .certificate-card img {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover img {
+            transform: scale(1.02);
+        }
+
         .contact-item {
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -259,7 +266,6 @@
             transform: scale(1.15);
         }
 
-        /* Back to top button */
         #back-to-top {
             position: fixed;
             bottom: 30px;
@@ -286,7 +292,6 @@
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
         }
 
-        /* Footer */
         footer {
             background-color: rgba(3, 7, 18, 0.9);
             backdrop-filter: blur(10px);
@@ -299,7 +304,6 @@
 </head>
 <body>
 
-    <!-- Animated Live Background Canvas -->
     <canvas id="bg-canvas"></canvas>
 
     <!-- Navigation Bar -->
@@ -315,6 +319,7 @@
                     <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
                     <li class="nav-item"><a class="nav-link" href="#problem-solving">Problem-Solving</a></li>
                     <li class="nav-item"><a class="nav-link" href="#employability">Employability</a></li>
                     <li class="nav-item"><a class="nav-link" href="#resume">Hire me!</a></li>
@@ -335,7 +340,7 @@
                     <p class="lead text-light mb-4" style="font-weight: 400; color: var(--text-muted) !important;">21 Years Old | Full-Stack Web Developer & IT Solutions Specialist based in Talon Tres, Las Piñas City. Building secure, scalable, and intelligent web applications.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
                         <a href="#projects" class="btn btn-primary-custom"><i class="fa-solid fa-rocket me-2"></i>VIEW MY PROJECTS</a>
-                        <a href="https://canva.link/8nizk28s9y35pf3" target="_blank" class="btn btn-outline-custom"><i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD RESUME</a>
+                        <a href="resumenicla.jpg" download="Clarize_Villanueva_Resume.jpg" class="btn btn-outline-custom"><i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD RESUME</a>
                     </div>
                 </div>
             </div>
@@ -350,7 +355,6 @@
             <div class="row justify-content-center align-items-center g-5 text-lg-start">
                 <div class="col-lg-4 text-center" data-aos="zoom-in">
                     <div class="profile-img-container">
-                        <!-- 2x2 Professional Photo -->
                         <img src="2x2.jpg" alt="Clarize C. Villanueva ID Photo" class="profile-img img-fluid">
                     </div>
                     <h5 class="fw-bold mt-3 text-white">Clarize C. Villanueva</h5>
@@ -425,7 +429,6 @@
             <h2>Projects Portfolio</h2>
             <p class="section-subtitle">Demonstrating practical capabilities across web development, database management, and specialization</p>
             <div class="row g-4 text-start">
-                <!-- Project 1 -->
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
@@ -438,20 +441,18 @@
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-success mb-3 align-self-start">Database / Data Project</span>
-                            <h4 class="h5 fw-bold text-white">Student Performance Analysis</h4>
-                            <p class="small mt-2" style="color: var(--text-muted) !important;">A comprehensive student performance analysis project leveraging advanced Excel techniques to track grades, attendance patterns, and early risk flags.</p>
+                            <h4 class="h5 fw-bold text-white">DataAnalytics Pro: Small Business Sales & Inventory Analytics System</h4>
+                            <p class="small mt-2" style="color: var(--text-muted) !important;">A professional web-based database and business intelligence system featuring real-time cloud sync, full CRUD operations, automated inventory stock deductions on sales, and interactive visual analytics charts.</p>
                             <div class="mt-auto pt-3">
-                                <a href="proj.2connectedtoproj.1/student_performance_analytics.xlsx" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-solid fa-table me-2"></i>View My Data</a>
+                                <a href="https://claksksk.github.io/project2_data_analytics/" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-solid fa-table me-2"></i>View My Data Analytics</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Project 3 -->
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
@@ -460,6 +461,100 @@
                             <p class="small mt-2" style="color: var(--text-muted) !important;">An advanced enterprise support platform equipped with automated ticket classification, priority assignment, and AI-driven preliminary troubleshooting recommendation engines.</p>
                             <div class="mt-auto pt-3">
                                 <a href="https://github.com/claksksk" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-brands fa-github me-2"></i>View GitHub Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES & CREDENTIALS SECTION -->
+    <section id="certificates">
+        <div class="container text-center" data-aos="fade-up">
+            <h2>Certificates & Credentials</h2>
+            <p class="section-subtitle">Verified professional licenses, technical certifications, and webinar attendance</p>
+            <div class="row g-4 text-start">
+                <!-- Cert 1: TESDA NC II -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card certificate-card h-100">
+                        <img src="Screenshot (567).jpg" alt="TESDA NC II Computer Systems Servicing" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-success mb-2 align-self-start">TESDA National Certificate II</span>
+                            <h5 class="fw-bold text-white">Computer Systems Servicing (NC II)</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Certified in computer systems installation, network setup, hardware repair, and maintenance under the Philippine TVET Competency Assessment System.</p>
+                            <div class="mt-auto">
+                                <a href="Screenshot (567).jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cert 2: IoT 101 -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card certificate-card h-100">
+                        <img src="a4beefc4-987d-4f18-9a8a-741682bae7db.jpg" alt="IoT 101 Certificate" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-primary mb-2 align-self-start">Online Webinar</span>
+                            <h5 class="fw-bold text-white">IoT 101: Your Gateway to Smart Technology</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Successfully completed IoT webinar organized by Ethel Programming Computer Programming Services on August 2, 2026.</p>
+                            <div class="mt-auto">
+                                <a href="a4beefc4-987d-4f18-9a8a-741682bae7db.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cert 3: Real AI, Real Security -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card certificate-card h-100">
+                        <img src="a5953ad8-9b25-43d9-81dc-ecce567b08f7.jpg" alt="Preparing DevSecOps for AI Development" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK Cybersecurity</span>
+                            <h5 class="fw-bold text-white">Preparing DevSecOps for AI Development</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Attended professional security seminar covering AI integration risks and DevSecOps frameworks on August 20, 2026.</p>
+                            <div class="mt-auto">
+                                <a href="a5953ad8-9b25-43d9-81dc-ecce567b08f7.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cert 4: Generative AI & SDLC -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card certificate-card h-100">
+                        <img src="033d2ca6-b6b8-4dc5-a4ec-f389ca2120d5.jpg" alt="How Generative AI is Changing the SDLC" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK AI Seminar</span>
+                            <h5 class="fw-bold text-white">How Generative AI is Changing the SDLC</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Completed professional attendance on AI-driven software development lifecycle transformation on August 20, 2026.</p>
+                            <div class="mt-auto">
+                                <a href="033d2ca6-b6b8-4dc5-a4ec-f389ca2120d5.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cert 5: Reporting Active Exploits -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card certificate-card h-100">
+                        <img src="f0c41de8-ab52-4b54-a6f2-b66532791197.jpg" alt="Reporting Active Exploits in 24 Hours" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-danger mb-2 align-self-start">Cybersecurity Seminar</span>
+                            <h5 class="fw-bold text-white">Reporting Active Exploits in 24 Hours: CRA</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Certified attendance focusing on vulnerability reporting and cyber resilience standards on August 20, 2026.</p>
+                            <div class="mt-auto">
+                                <a href="f0c41de8-ab52-4b54-a6f2-b66532791197.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cert 6: Unlocking ROI Tied Up in AI -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card certificate-card h-100">
+                        <img src="af430698-6d58-4079-90af-85d86e965e87.jpg" alt="Unlocking ROI Tied Up in AI-Powered Development" class="img-fluid">
+                        <div class="card-body d-flex flex-column p-4">
+                            <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK AI Development</span>
+                            <h5 class="fw-bold text-white">Unlocking ROI in AI-Powered Development</h5>
+                            <p class="small mb-3" style="color: var(--text-muted) !important;">Completed training on return on investment and strategic deployment of AI development tools on August 21, 2026.</p>
+                            <div class="mt-auto">
+                                <a href="af430698-6d58-4079-90af-85d86e965e87.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
                             </div>
                         </div>
                     </div>
@@ -490,7 +585,7 @@
         </div>
     </section>
 
-    <!-- EMPLOYABILITY & GITHUB/LINKEDIN (Pantay na 2 Cards) -->
+    <!-- EMPLOYABILITY & GITHUB/LINKEDIN -->
     <section id="employability">
         <div class="container text-center" data-aos="fade-up">
             <h2>Employability, GitHub & LinkedIn</h2>
@@ -538,7 +633,9 @@
                     <div class="card p-5 text-center">
                         <h4 class="fw-bold text-white mb-3">Looking for my official CV?</h4>
                         <p class="mb-4" style="color: var(--text-muted) !important;">Optimized for corporate IT applications, software engineering, and technical support roles.</p>
-                        <a href="https://canva.link/8nizk28s9y35pf3?view" target="_blank" class="btn btn-primary-custom mx-auto"><i class="fa-solid fa-eye me-2"></i>VIEW RESUME</a>
+                        <div class="d-flex justify-content-center gap-3 flex-wrap">
+                            <a href="resumenicla.jpg" download="Clarize_Villanueva_Resume.jpg" class="btn btn-primary-custom"><i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD RESUME</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -553,8 +650,6 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 text-start" data-aos="fade-up">
                     <div class="card p-4 p-md-5">
-                        
-                        <!-- Email Link -->
                         <a href="mailto:villanuevaclarize80@gmail.com" class="contact-item">
                             <i class="fa-solid fa-envelope"></i>
                             <div>
@@ -562,8 +657,6 @@
                                 <span class="text-white fw-bold fs-6">villanuevaclarize80@gmail.com</span>
                             </div>
                         </a>
-
-                        <!-- Facebook Link -->
                         <a href="https://web.facebook.com/clarize.654844" target="_blank" class="contact-item">
                             <i class="fa-brands fa-facebook"></i>
                             <div>
@@ -571,8 +664,6 @@
                                 <span class="text-white fw-bold fs-6">Clarize (Click to open profile)</span>
                             </div>
                         </a>
-
-                        <!-- Phone Number Link -->
                         <a href="tel:09927014452" class="contact-item">
                             <i class="fa-solid fa-phone"></i>
                             <div>
@@ -580,8 +671,6 @@
                                 <span class="text-white fw-bold fs-6">09927014452</span>
                             </div>
                         </a>
-
-                        <!-- Location Google Maps Link -->
                         <a href="https://www.google.com/maps/search/?api=1&query=Talon+Tres,+Las+Pinas+City,+Metro+Manila,+Philippines" target="_blank" class="contact-item mb-0">
                             <i class="fa-solid fa-location-dot"></i>
                             <div>
@@ -589,7 +678,6 @@
                                 <span class="text-white fw-bold fs-6">Talon Tres, Las Piñas City, Metro Manila, Philippines</span>
                             </div>
                         </a>
-
                     </div>
                 </div>
             </div>
@@ -630,13 +718,8 @@
     <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS animations
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        AOS.init({ duration: 800, once: true });
 
-        // Show/Hide Back-to-Top Button & Active Navbar Link on Scroll
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('back-to-top');
             if (window.scrollY > 300) {
@@ -645,10 +728,8 @@
                 btn.style.display = 'none';
             }
 
-            // Scrollspy active highlight logic
             let sections = document.querySelectorAll('section');
             let navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 120;
@@ -656,7 +737,6 @@
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href').includes(current)) {
@@ -665,7 +745,51 @@
             });
         });
 
-        // Live Interactive Canvas Background (Floating Particles)
+        // Direct Download Resume Function
+        function downloadResume() {
+            const resumeText = `CLARIZE C. VILLANUEVA
+Block 2 Lot 1 Talampas Compound, Talon 3, Las Piñas City
+09927014452 | villanuevaclarize80@gmail.com
+
+OBJECTIVE:
+Dedicated to improving customer experiences through effective communication and support. Personable and results-oriented candidate seeking a role in customer service and IT solutions.
+
+SKILLS:
+- Leadership and Management
+- Proficient in Microsoft Office
+- Adaptability & Teamwork
+- Flexibility & Critical Thinking
+- Full-Stack Web Development, SQL, Python, JavaScript
+
+EDUCATION:
+Tertiary: BSIT (2023-2026) - Datamex College of Saint Adeline-Parañaque Campus
+Secondary: Las Piñas City Technical-Vocational High School (2023 Graduate)
+
+CERTIFICATIONS:
+- TESDA National Certificate II in Computer Systems Servicing (NC II)
+- IoT 101: Your Gateway to Smart Technology (Aug 2026)
+- Preparing DevSecOps for AI Development (BrightTALK, Aug 2026)
+- How Generative AI is Changing the SDLC (BrightTALK, Aug 2026)
+- Reporting Active Exploits in 24 Hours: Are You Ready for the CRA? (Aug 2026)
+- Unlocking ROI Tied Up in AI-Powered Development (BrightTALK, Aug 2026)
+
+AFFILIATIONS:
+- Campus Integrity Crusaders - President (2020-2021)
+- KK (Katipunan ng Kabataan) - Vice President (2023-2024, Barangay Talon Tres)
+`;
+
+            const blob = new Blob([resumeText], { type: 'text/plain;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Clarize_Villanueva_Resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Live Interactive Canvas Background
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -717,7 +841,6 @@
                 particlesArray[i].update();
                 particlesArray[i].draw();
                 
-                // Connect particles with lines if close
                 for (let j = i; j < particlesArray.length; j++) {
                     const dx = particlesArray[i].x - particlesArray[j].x;
                     const dy = particlesArray[i].y - particlesArray[j].y;
@@ -737,4 +860,4 @@
         animateParticles();
     </script>
 </body>
-</html> 
+</html>
