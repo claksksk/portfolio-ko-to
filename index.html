@@ -22,6 +22,20 @@
             --accent-glow: rgba(59, 130, 246, 0.35);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
+            --navbar-bg: rgba(3, 7, 18, 0.8);
+            --badge-bg: rgba(15, 23, 42, 0.8);
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #f1f5f9;
+            --card-glass: rgba(255, 255, 255, 0.85);
+            --card-glass-hover: rgba(255, 255, 255, 0.95);
+            --accent-color: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.25);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+            --badge-bg: rgba(226, 232, 240, 0.9);
         }
 
         body {
@@ -29,6 +43,7 @@
             color: var(--text-main);
             background-color: var(--bg-dark);
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         #bg-canvas {
@@ -39,14 +54,20 @@
             height: 100%;
             z-index: -1;
             background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="light"] #bg-canvas {
+            background: radial-gradient(circle at center, #e2e8f0 0%, #cbd5e1 100%);
         }
 
         .navbar {
-            background: rgba(3, 7, 18, 0.8) !important;
+            background: var(--navbar-bg) !important;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
         }
 
         .navbar-brand {
@@ -57,7 +78,7 @@
 
         .nav-link {
             font-weight: 500;
-            color: #cbd5e1 !important;
+            color: var(--text-muted) !important;
             transition: all 0.3s ease;
             position: relative;
             padding: 8px 12px !important;
@@ -65,10 +86,31 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: #ffffff !important;
+            color: var(--text-main) !important;
             background: rgba(59, 130, 246, 0.15);
             border: 1px solid rgba(59, 130, 246, 0.3);
             box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         #home {
@@ -113,9 +155,9 @@
 
         .btn-outline-custom {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(148, 163, 184, 0.3);
             backdrop-filter: blur(10px);
-            color: #ffffff;
+            color: var(--text-main);
             font-weight: 600;
             padding: 10px 28px;
             border-radius: 12px;
@@ -140,7 +182,7 @@
 
         section h2 {
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-main);
             margin-bottom: 10px;
             position: relative;
             display: inline-block;
@@ -165,9 +207,9 @@
         }
 
         .card {
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: var(--card-glass);
             backdrop-filter: blur(16px);
@@ -182,15 +224,15 @@
         }
 
         .skill-badge {
-            background: rgba(15, 23, 42, 0.8);
-            color: #e2e8f0;
+            background: var(--badge-bg);
+            color: var(--text-main);
             padding: 8px 16px;
             border-radius: 10px;
             font-weight: 500;
             font-size: 0.88rem;
             display: inline-block;
             margin: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             transition: all 0.3s;
             backdrop-filter: blur(5px);
         }
@@ -227,7 +269,7 @@
             object-fit: cover;
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.15);
             transition: transform 0.3s ease;
         }
 
@@ -236,8 +278,8 @@
         }
 
         .contact-item {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--card-glass);
+            border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 16px;
             padding: 20px 24px;
             margin-bottom: 16px;
@@ -293,28 +335,39 @@
         }
 
         footer {
-            background-color: rgba(3, 7, 18, 0.9);
+            background-color: var(--navbar-bg);
             backdrop-filter: blur(10px);
             color: var(--text-muted);
             padding: 35px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
             font-size: 0.92rem;
+        }
+
+        /* Modal Customization for Dark/Light Mode */
+        .modal-content {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 20px;
+        }
+        .modal-header, .modal-footer {
+            border-color: rgba(148, 163, 184, 0.2);
         }
     </style>
 </head>
-<body>
+<body data-theme="dark">
 
     <canvas id="bg-canvas"></canvas>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home"><i class="fa-solid fa-code me-2"></i>Clarize.IT</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-1">
+                <ul class="navbar-nav gap-1 align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
@@ -324,7 +377,14 @@
                     <li class="nav-item"><a class="nav-link" href="#employability">Employability</a></li>
                     <li class="nav-item"><a class="nav-link" href="#resume">Hire me!</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reflection">Reflection</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reflection">Reflection</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+                            <i class="fa-solid fa-moon" id="themeIcon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -336,8 +396,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <span class="hero-badge"><i class="fa-solid fa-graduation-cap me-2"></i>BSIT 4th Year Final Defense Portfolio</span>
-                    <h1 class="display-3 fw-bold mb-3 text-white">Hello, I'm <br><span style="color: #60a5fa;">Clarize C. Villanueva</span></h1>
-                    <p class="lead text-light mb-4" style="font-weight: 400; color: var(--text-muted) !important;">21 Years Old | Full-Stack Web Developer & IT Solutions Specialist based in Talon Tres, Las Piñas City. Building secure, scalable, and intelligent web applications.</p>
+                    <h1 class="display-3 fw-bold mb-3">Hello, I'm <br><span style="color: #60a5fa;">Clarize C. Villanueva</span></h1>
+                    <p class="lead mb-4" style="font-weight: 400; color: var(--text-muted) !important;">21 Years Old | Full-Stack Web Developer & IT Solutions Specialist based in Talon Tres, Las Piñas City. Building secure, scalable, and intelligent web applications.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
                         <a href="#projects" class="btn btn-primary-custom"><i class="fa-solid fa-rocket me-2"></i>VIEW MY PROJECTS</a>
                         <a href="resume.jpg" download="resume.jpg" class="btn btn-outline-custom"><i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD RESUME</a>
@@ -357,14 +417,14 @@
                     <div class="profile-img-container">
                         <img src="2x2.jpg" alt="Clarize C. Villanueva ID Photo" class="profile-img img-fluid">
                     </div>
-                    <h5 class="fw-bold mt-3 text-white">Clarize C. Villanueva</h5>
-                    <p class="text-light small mb-0">BSIT 4th Year Student</p>
+                    <h5 class="fw-bold mt-3">Clarize C. Villanueva</h5>
+                    <p class="small mb-0" style="color: var(--text-muted);">BSIT 4th Year Student</p>
                     <p class="text-info small fw-bold">Datamex College of Saint Adeline</p>
                 </div>
                 <div class="col-lg-8" data-aos="fade-left">
                     <div class="card p-4 p-md-5">
-                        <p class="fs-6 lh-lg mb-0" style="color: #e2e8f0 !important;">
-                            I am a 21-year-old 4th-year BSIT student at <strong class="text-white">Datamex College of Saint Adeline</strong> with specialized technical competencies in full-stack web development, relational database management, and enterprise system troubleshooting. I am intensely passionate about pursuing a professional career as a <strong class="text-white">Full-Stack Web Developer</strong>. Throughout my degree program, I have successfully designed, built, and deployed robust applications, managed structured databases, and cultivated rigorous industry standards in secure coding and software architecture.
+                        <p class="fs-6 lh-lg mb-0" style="color: var(--text-muted);">
+                            I am a 21-year-old 4th-year BSIT student at <strong style="color: var(--text-main);">Datamex College of Saint Adeline</strong> with specialized technical competencies in full-stack web development, relational database management, and enterprise system troubleshooting. I am intensely passionate about pursuing a professional career as a <strong style="color: var(--text-main);">Full-Stack Web Developer</strong>. Throughout my degree program, I have successfully designed, built, and deployed robust applications, managed structured databases, and cultivated rigorous industry standards in secure coding and software architecture.
                         </p>
                     </div>
                 </div>
@@ -433,7 +493,7 @@
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-primary mb-3 align-self-start">Web Development</span>
-                            <h4 class="h5 fw-bold text-white">AI-Assisted Student Academic Management System</h4>
+                            <h4 class="h5 fw-bold">AI-Assisted Student Academic Management System</h4>
                             <p class="small mt-2" style="color: var(--text-muted) !important;">A full-stack web application featuring secure session authentication, full CRUD operations, database integration, live search, input validation, and an AI Academic Assistant module.</p>
                             <div class="mt-auto pt-3">
                                 <a href="https://claksksk.github.io/ai-assisted-student-academic-management-system/" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-brands fa-github me-2"></i>View My Site</a>
@@ -445,7 +505,7 @@
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-success mb-3 align-self-start">Database / Data Project</span>
-                            <h4 class="h5 fw-bold text-white">DataAnalytics Pro: Small Business Sales & Inventory Analytics System</h4>
+                            <h4 class="h5 fw-bold">DataAnalytics Pro: Small Business Sales & Inventory Analytics System</h4>
                             <p class="small mt-2" style="color: var(--text-muted) !important;">A professional web-based database and business intelligence system featuring real-time cloud sync, full CRUD operations, automated inventory stock deductions on sales, and interactive visual analytics charts.</p>
                             <div class="mt-auto pt-3">
                                 <a href="https://claksksk.github.io/project2_data_analytics/" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-solid fa-table me-2"></i>View My Data Analytics</a>
@@ -456,11 +516,13 @@
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card h-100">
                         <div class="card-body d-flex flex-column p-4">
-                            <span class="badge bg-warning text-dark mb-3 align-self-start">Specialization Project</span>
-                            <h4 class="h5 fw-bold text-white">AI-Assisted IT Help Desk & Service Ticket Management</h4>
-                            <p class="small mt-2" style="color: var(--text-muted) !important;">An advanced enterprise support platform equipped with automated ticket classification, priority assignment, and AI-driven preliminary troubleshooting recommendation engines.</p>
+                            <span class="badge bg-warning text-dark mb-3 align-self-start">Hardware / IoT Project</span>
+                            <h4 class="h5 fw-bold">Arduino RFID Gate Access System</h4>
+                            <p class="small mt-2" style="color: var(--text-muted) !important;">An automated school gate access security prototype built with Arduino and RFID/Keypad integration where students enter or scan their school ID to lift the barrier gate.</p>
                             <div class="mt-auto pt-3">
-                                <a href="https://github.com/claksksk" class="btn btn-outline-custom btn-sm w-100 text-center" target="_blank"><i class="fa-brands fa-github me-2"></i>View GitHub Repository</a>
+                                <button type="button" class="btn btn-outline-custom btn-sm w-100 text-center" data-bs-toggle="modal" data-bs-target="#project3Modal">
+                                    <i class="fa-solid fa-eye me-2"></i>View Project Details & Photos
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -469,19 +531,52 @@
         </div>
     </section>
 
+    <!-- Project 3 Modal -->
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content p-3 p-md-4">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title fw-bold text-info" id="project3ModalLabel">Arduino RFID Gate Access System</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-4" style="color: var(--text-muted);">
+                        This hardware and microcontroller project was developed to secure school entry points. Students enter or scan their school ID / credentials via the keypad and RFID reader module housed inside the custom control unit. Upon successful validation, the internal microcontroller triggers the servo/actuator mechanism to lift the barrier gate automatically.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-4 text-center">
+                            <img src="27d7395f-c06e-4426-ab3b-dfde19815fa1.jpg" alt="Team presenting Arduino Gate Project" class="img-fluid rounded shadow-sm mb-2" style="height: 160px; object-fit: cover; width: 100%;">
+                            <small class="d-block" style="color: var(--text-muted);">System Presentation & Team</small>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="a223ee28-a075-4a4a-98fd-e2c683fd2df7.jpg" alt="Internal wiring and Arduino setup" class="img-fluid rounded shadow-sm mb-2" style="height: 160px; object-fit: cover; width: 100%;">
+                            <small class="d-block" style="color: var(--text-muted);">Circuitry & Breadboard Setup</small>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <img src="f29ff854-cf78-4f49-bb6d-baeb404410e4.jpg" alt="Testing the gate access unit" class="img-fluid rounded shadow-sm mb-2" style="height: 160px; object-fit: cover; width: 100%;">
+                            <small class="d-block" style="color: var(--text-muted);">Live Testing & Calibration</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary-custom btn-sm" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CERTIFICATES & CREDENTIALS SECTION -->
     <section id="certificates">
         <div class="container text-center" data-aos="fade-up">
             <h2>Certificates & Credentials</h2>
             <p class="section-subtitle">Verified professional licenses, technical certifications, and webinar attendance</p>
             <div class="row g-4 text-start">
-                <!-- Cert 1: TESDA NC II (Pinalitan ang file name na walang space/parenthesis) -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card certificate-card h-100">
                         <img src="nc2_certificate.jpg" alt="TESDA NC II Computer Systems Servicing" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-success mb-2 align-self-start">TESDA National Certificate II</span>
-                            <h5 class="fw-bold text-white">Computer Systems Servicing (NC II)</h5>
+                            <h5 class="fw-bold">Computer Systems Servicing (NC II)</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Certified in computer systems installation, network setup, hardware repair, and maintenance under the Philippine TVET Competency Assessment System.</p>
                             <div class="mt-auto">
                                 <a href="nc2_certificate.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -489,13 +584,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cert 2: IoT 101 -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card certificate-card h-100">
                         <img src="iot_cert.jpg" alt="IoT 101 Certificate" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-primary mb-2 align-self-start">Online Webinar</span>
-                            <h5 class="fw-bold text-white">IoT 101: Your Gateway to Smart Technology</h5>
+                            <h5 class="fw-bold">IoT 101: Your Gateway to Smart Technology</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Successfully completed IoT webinar organized by Ethel Programming Computer Programming Services on August 2, 2026.</p>
                             <div class="mt-auto">
                                 <a href="iot_cert.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -503,13 +597,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cert 3: Real AI, Real Security -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="card certificate-card h-100">
                         <img src="ai_sec_cert.jpg" alt="Preparing DevSecOps for AI Development" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK Cybersecurity</span>
-                            <h5 class="fw-bold text-white">Preparing DevSecOps for AI Development</h5>
+                            <h5 class="fw-bold">Preparing DevSecOps for AI Development</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Attended professional security seminar covering AI integration risks and DevSecOps frameworks on August 20, 2026.</p>
                             <div class="mt-auto">
                                 <a href="ai_sec_cert.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -517,13 +610,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cert 4: Generative AI & SDLC -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card certificate-card h-100">
                         <img src="ai_sdlc_cert.jpg" alt="How Generative AI is Changing the SDLC" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK AI Seminar</span>
-                            <h5 class="fw-bold text-white">How Generative AI is Changing the SDLC</h5>
+                            <h5 class="fw-bold">How Generative AI is Changing the SDLC</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Completed professional attendance on AI-driven software development lifecycle transformation on August 20, 2026.</p>
                             <div class="mt-auto">
                                 <a href="ai_sdlc_cert.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -531,13 +623,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cert 5: Reporting Active Exploits -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
                     <div class="card certificate-card h-100">
                         <img src="exploits_cert.jpg" alt="Reporting Active Exploits in 24 Hours" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-danger mb-2 align-self-start">Cybersecurity Seminar</span>
-                            <h5 class="fw-bold text-white">Reporting Active Exploits in 24 Hours: CRA</h5>
+                            <h5 class="fw-bold">Reporting Active Exploits in 24 Hours: CRA</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Certified attendance focusing on vulnerability reporting and cyber resilience standards on August 20, 2026.</p>
                             <div class="mt-auto">
                                 <a href="exploits_cert.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -545,13 +636,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cert 6: Unlocking ROI Tied Up in AI -->
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
                     <div class="card certificate-card h-100">
                         <img src="roi_ai_cert.jpg" alt="Unlocking ROI Tied Up in AI-Powered Development" class="img-fluid">
                         <div class="card-body d-flex flex-column p-4">
                             <span class="badge bg-info text-dark mb-2 align-self-start">BrightTALK AI Development</span>
-                            <h5 class="fw-bold text-white">Unlocking ROI in AI-Powered Development</h5>
+                            <h5 class="fw-bold">Unlocking ROI in AI-Powered Development</h5>
                             <p class="small mb-3" style="color: var(--text-muted) !important;">Completed training on return on investment and strategic deployment of AI development tools on August 21, 2026.</p>
                             <div class="mt-auto">
                                 <a href="roi_ai_cert.jpg" target="_blank" class="btn btn-outline-custom btn-sm w-100"><i class="fa-solid fa-certificate me-1"></i>View Full Certificate</a>
@@ -571,13 +661,13 @@
             <div class="row g-4 text-start">
                 <div class="col-md-6" data-aos="fade-right">
                     <div class="card h-100 p-4">
-                        <h4 class="h5 fw-bold text-white mb-3"><i class="fa-solid fa-screwdriver-wrench me-2 text-info"></i>IT Troubleshooting Portfolio</h4>
+                        <h4 class="h5 fw-bold mb-3 text-info"><i class="fa-solid fa-screwdriver-wrench me-2"></i>IT Troubleshooting Portfolio</h4>
                         <p style="color: var(--text-muted) !important;">Maintains logs for 5 core technical troubleshooting cases covering network adapter failures, DHCP/IP configuration errors, DNS resolution timeouts, hardware driver conflicts, and web server socket exceptions.</p>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="card h-100 p-4">
-                        <h4 class="h5 fw-bold text-white mb-3"><i class="fa-solid fa-shield-halved me-2 text-info"></i>Cybersecurity Case Study</h4>
+                        <h4 class="h5 fw-bold mb-3 text-info"><i class="fa-solid fa-shield-halved me-2"></i>Cybersecurity Case Study</h4>
                         <p style="color: var(--text-muted) !important;">In-depth security analysis covering SQL Injection (SQLi) vulnerabilities—explaining root causes, data exposure risks, mitigation via prepared statements, and secure input sanitization practices.</p>
                     </div>
                 </div>
@@ -595,8 +685,8 @@
                     <div class="card h-100 p-4 text-center d-flex flex-column">
                         <div class="card-body d-flex flex-column justify-content-between p-0">
                             <div>
-                                <i class="fa-brands fa-github fa-3x text-white mb-3"></i>
-                                <h4 class="h5 fw-bold text-white">GitHub Repository</h4>
+                                <i class="fa-brands fa-github fa-3x mb-3" style="color: var(--text-main);"></i>
+                                <h4 class="h5 fw-bold">GitHub Repository</h4>
                                 <p class="small" style="color: var(--text-muted) !important;">Explore complete source code versions, commit histories, and documentation.</p>
                             </div>
                             <div class="mt-4">
@@ -610,7 +700,7 @@
                         <div class="card-body d-flex flex-column justify-content-between p-0">
                             <div>
                                 <i class="fa-brands fa-linkedin fa-3x text-info mb-3"></i>
-                                <h4 class="h5 fw-bold text-white">LinkedIn Profile</h4>
+                                <h4 class="h5 fw-bold">LinkedIn Profile</h4>
                                 <p class="small" style="color: var(--text-muted) !important;">Connect with me professionally and check my career endorsements.</p>
                             </div>
                             <div class="mt-4">
@@ -631,7 +721,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8" data-aos="zoom-in">
                     <div class="card p-5 text-center">
-                        <h4 class="fw-bold text-white mb-3">Looking for my official CV?</h4>
+                        <h4 class="fw-bold mb-3">Looking for my official CV?</h4>
                         <p class="mb-4" style="color: var(--text-muted) !important;">Optimized for corporate IT applications, software engineering, and technical support roles.</p>
                         <div class="d-flex justify-content-center gap-3 flex-wrap">
                             <a href="resume.jpg" download="resume.jpg" class="btn btn-primary-custom"><i class="fa-solid fa-file-arrow-down me-2"></i>DOWNLOAD RESUME</a>
@@ -654,28 +744,28 @@
                             <i class="fa-solid fa-envelope"></i>
                             <div>
                                 <small class="d-block opacity-75" style="color: var(--text-muted);">Email Address</small>
-                                <span class="text-white fw-bold fs-6">villanuevaclarize80@gmail.com</span>
+                                <span class="fw-bold fs-6">villanuevaclarize80@gmail.com</span>
                             </div>
                         </a>
                         <a href="https://web.facebook.com/clarize.654844" target="_blank" class="contact-item">
                             <i class="fa-brands fa-facebook"></i>
                             <div>
                                 <small class="d-block opacity-75" style="color: var(--text-muted);">Facebook Account</small>
-                                <span class="text-white fw-bold fs-6">Clarize (Click to open profile)</span>
+                                <span class="fw-bold fs-6">Clarize (Click to open profile)</span>
                             </div>
                         </a>
                         <a href="tel:09927014452" class="contact-item">
                             <i class="fa-solid fa-phone"></i>
                             <div>
                                 <small class="d-block opacity-75" style="color: var(--text-muted);">Contact Number</small>
-                                <span class="text-white fw-bold fs-6">09927014452</span>
+                                <span class="fw-bold fs-6">09927014452</span>
                             </div>
                         </a>
                         <a href="https://www.google.com/maps/search/?api=1&query=Talon+Tres,+Las+Pinas+City,+Metro+Manila,+Philippines" target="_blank" class="contact-item mb-0">
                             <i class="fa-solid fa-location-dot"></i>
                             <div>
                                 <small class="d-block opacity-75" style="color: var(--text-muted);">Location</small>
-                                <span class="text-white fw-bold fs-6">Talon Tres, Las Piñas City, Metro Manila, Philippines</span>
+                                <span class="fw-bold fs-6">Talon Tres, Las Piñas City, Metro Manila, Philippines</span>
                             </div>
                         </a>
                     </div>
@@ -692,7 +782,7 @@
             <div class="row justify-content-center text-start">
                 <div class="col-lg-10" data-aos="fade-up">
                     <div class="card p-4 p-md-5">
-                        <p class="fs-6 lh-lg mb-0" style="color: #e2e8f0 !important;">
+                        <p class="fs-6 lh-lg mb-0" style="color: var(--text-muted);">
                             Entering the BSIT program at Datamex College of Saint Adeline, my comprehension of technology was primarily that of an end-user. Through rigorous academic coursework, complex relational database management projects, and building full-stack applications, my technical capabilities experienced a profound transformation. Developing the AI-Assisted Student Academic Management System taught me how to effectively bridge software engineering principles with intelligent data insights. I am now fully prepared to defend my work and begin my professional career as an innovative, resilient IT professional.
                         </p>
                     </div>
@@ -720,6 +810,23 @@
     <script>
         AOS.init({ duration: 800, once: true });
 
+        // Dark / Light Mode Toggle Script
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const bodyElement = document.body;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (bodyElement.getAttribute('data-theme') === 'dark') {
+                bodyElement.setAttribute('data-theme', 'light');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                bodyElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('back-to-top');
             if (window.scrollY > 300) {
@@ -739,7 +846,7 @@
             });
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
+                if (link.getAttribute('href') && link.getAttribute('href').includes(current)) {
                     link.classList.add('active');
                 }
             });
